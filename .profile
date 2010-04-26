@@ -65,7 +65,7 @@ if [ "${OSTYPE}" = "FreeBSD" ]; then
   }
 
   # source bash completion scripts
-  if [ -d /usr/local/etc/bash_completion.d/ -a -n ${BASH} ]; then
+  if [ -d /usr/local/etc/bash_completion.d/ -a -n "${BASH}" ]; then
     for i in /usr/local/etc/bash_completion.d/*; do
       . "$i"
     done
@@ -83,7 +83,7 @@ elif [ "${OSTYPE}" = "Linux" ]; then
   }
 
   # source bash completion scripts
-  if [ -d /etc/bash_completion.d/  -a -n ${BASH} ]; then
+  if [ -d /etc/bash_completion.d/ -a -n "${BASH}" ]; then
     for i in /etc/bash_completion.d/*; do
       . "$i"
     done
