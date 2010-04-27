@@ -21,6 +21,12 @@ export LD_LIBRARY_PATH
 BLOCKSIZE=K
 export BLOCKSIZE
 
+LANG=de_DE.UTF-8
+export LANG
+
+LC_ALL=de_DE.UTF-8
+export LC_ALL
+
 LESS='-i -X'
 export LESS
 
