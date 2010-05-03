@@ -74,6 +74,9 @@ fi
 OSTYPE=$(uname -s)
 if [ "${OSTYPE}" = "FreeBSD" ]; then
 
+  PATH=/usr/local/mpi/openmpi/bin:${PATH}
+  export PATH
+
   LSCOLORS='xexfxcxdxbegedabagacad'
   export LSCOLORS
 
