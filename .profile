@@ -64,6 +64,7 @@ alias su='sudo su'
 alias gimp='gimp -s'
 alias tms='tmux -L stuff'
 alias tml='tmux -L long'
+alias smux='sudo tmux'
 
 COLORDIFF=$(which colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
