@@ -126,37 +126,7 @@ if [ -n "${SVN}" ]; then
   }
 fi
 
-# merge gdm auth cookie into .Xauthority
-if [ -n "${DISPLAY}" -a "${XAUTHORITY}" != "${HOME}/.Xauthority" ]; then
-  xauth -f "${HOME}/.Xauthority" remove ${DISPLAY}
-  if [ -n "`xauth -f "${HOME}/.Xauthority" merge ${XAUTHORITY} 2>&1`" ]; then
-    xauth -f "${HOME}/.Xauthority" merge "$(echo /var/run/gdm/auth-for-$(id -un)-*/database)" 2>/dev/null
-  fi
-  export XAUTHORITY="${HOME}/.Xauthority"
-fi
-
 # load monitor calibration file
 if [ -n "${DISPLAY}" -a -f "${HOME}/.monicarc" -a -z "${SSH_CONNECTION}" ]; then
   . ${HOME}/.monicarc
-fi
-
-# start gpg-agent
-GPG_AGENT=$(which gpg-agent 2>/dev/null)
-if [ -n "${GPG_AGENT}" ]; then
-  if [ -f "${HOME}/.gpg-agent-info" ]; then
-    if ! kill -0 `grep GPG_AGENT_INFO ${HOME}/.gpg-agent-info | cut -f2 -d:` 2>/dev/null; then
-      rm -f ${HOME}/.gpg-agent-info
-      eval $(${GPG_AGENT} --daemon)
-      . ${HOME}/.gpg-agent-info
-      export `cut -f1 -d= ${HOME}/.gpg-agent-info`
-    else
-      . ${HOME}/.gpg-agent-info
-      export `cut -f1 -d= ${HOME}/.gpg-agent-info`
-      echo UPDATESTARTUPTTY | gpg-connect-agent 2>&1 >/dev/null
-    fi
-  else
-    eval $(${GPG_AGENT} --daemon)
-    . ${HOME}/.gpg-agent-info
-    export `cut -f1 -d= ${HOME}/.gpg-agent-info`
-  fi
 fi
