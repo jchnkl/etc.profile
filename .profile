@@ -18,6 +18,9 @@ ${HOME}/usr/lib:\
 ${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH
 
+OSTYPE=$(uname -s)
+HOSTNAME=$(hostname -s)
+
 BLOCKSIZE=K
 export BLOCKSIZE
 
@@ -72,7 +75,6 @@ if [ -x ${COLORDIFF} ]; then
 fi
 
 # functions
-OSTYPE=$(uname -s)
 if [ "${OSTYPE}" = "FreeBSD" ]; then
 
   PATH=/usr/local/mpi/openmpi/bin:${PATH}
