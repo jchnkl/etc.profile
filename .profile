@@ -129,7 +129,12 @@ if [ -n "${SVN}" ]; then
   }
 fi
 
-# load monitor calibration file
-if [ -n "${DISPLAY}" -a -f "${HOME}/.monicarc" -a -z "${SSH_CONNECTION}" ]; then
-  . ${HOME}/.monicarc
+if [ -n "${DISPLAY}" -a -z "${SSH_CONNECTION}" ]; then
+  if [ "${HOSTNAME}" = "monolith" ]; then
+    for screen in 0 1 2; do
+      xgamma -quiet -screen ${screen} -gamma 0.81
+    done
+  elif [ "${HOSTNAME}" = "phobos" ]; then
+    xgamma -quiet -rgamma 0.81 -ggamma 0.6 -bgamma 0.7
+  fi
 fi
