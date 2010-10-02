@@ -18,7 +18,7 @@ ${HOME}/usr/lib:\
 ${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH
 
-OSTYPE=$(uname -s)
+OSNAME=$(uname -s)
 HOSTNAME=$(hostname -s)
 
 BLOCKSIZE=K
@@ -75,7 +75,7 @@ if [ -x ${COLORDIFF} ]; then
 fi
 
 # functions
-if [ "${OSTYPE}" = "FreeBSD" ]; then
+if [ "${OSNAME}" = "FreeBSD" ]; then
 
   PATH=/usr/local/mpi/openmpi/bin:${PATH}
   export PATH
@@ -98,7 +98,7 @@ if [ "${OSTYPE}" = "FreeBSD" ]; then
     done
   fi
 
-elif [ "${OSTYPE}" = "Linux" ]; then
+elif [ "${OSNAME}" = "Linux" ]; then
 
   eval `dircolors -b ${HOME}/.dircolors`
 
