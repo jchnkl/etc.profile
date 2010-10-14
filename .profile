@@ -64,6 +64,8 @@ if [ -f ${HOME}/.termcap ]; then
 fi
 
 # aliases
+alias '..'='cd ..'
+alias -- '-'='cd -'
 alias su='sudo su'
 alias gimp='gimp -s'
 alias tms='tmux -L stuff'
