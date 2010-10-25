@@ -135,6 +135,6 @@ if [ -n "${DISPLAY}" -a -z "${SSH_CONNECTION}" ]; then
       xgamma -quiet -screen ${screen} -gamma 0.81
     done
   elif [ "${HOSTNAME}" = "phobos" ]; then
-    xgamma -quiet -rgamma 0.81 -ggamma 0.6 -bgamma 0.7
+    xgamma -quiet -rgamma 0.97 -ggamma 0.92 -bgamma 0.88
   fi
 fi
