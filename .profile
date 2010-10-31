@@ -72,6 +72,16 @@ alias tms='tmux -L stuff'
 alias tml='tmux -L long'
 alias smux='sudo tmux'
 
+# named directories
+if [ -n ${ZSH_VERSION} ]; then
+  doc=${HOME}/doc
+  pdf=${HOME}/pdf
+  src=${HOME}/src
+  tex=${HOME}/tex
+  tmp=${HOME}/tmp
+  usr=${HOME}/usr
+fi
+
 COLORDIFF=$(which colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
   alias diff='colordiff'
