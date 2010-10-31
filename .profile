@@ -104,6 +104,14 @@ if [ "${OSTYPE}" = "FreeBSD" ]; then
     CLICOLOR_FORCE=1 ls -FlGh $@ | less -EFr;
   }
 
+  lla() {
+    CLICOLOR_FORCE=1 ls -aFG $@;
+  }
+
+  dira() {
+    CLICOLOR_FORCE=1 ls -aFlGh $@ | less -EFr;
+  }
+
   # source bash completion scripts
   if [ -d /usr/local/etc/bash_completion.d/ -a -n "${BASH}" ]; then
     for i in /usr/local/etc/bash_completion.d/*; do
@@ -116,9 +124,14 @@ elif [ "${OSTYPE}" = "Linux" ]; then
   eval `dircolors -b ${HOME}/.dircolors`
 
   alias ll='ls -F --color'
+  alias lla='ls -aF --color'
 
   dir() {
     ls -lF --color "$@" | less -EFR
+  }
+
+  dira() {
+    ls -alF --color "$@" | less -EFR
   }
 
   # source bash completion scripts
