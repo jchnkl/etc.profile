@@ -19,7 +19,7 @@ ${HOME}/usr/lib:\
 ${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH
 
-OSTYPE=$(uname -s)
+OSNAME=$(uname -s)
 HOSTNAME=$(hostname -s)
 
 BLOCKSIZE=K
@@ -88,7 +88,7 @@ if [ -x ${COLORDIFF} ]; then
 fi
 
 # functions
-if [ "${OSTYPE}" = "FreeBSD" ]; then
+if [ "${OSNAME}" = "FreeBSD" ]; then
 
   PATH=/usr/local/mpi/openmpi/bin:${PATH}
   export PATH
@@ -119,7 +119,7 @@ if [ "${OSTYPE}" = "FreeBSD" ]; then
     done
   fi
 
-elif [ "${OSTYPE}" = "Linux" ]; then
+elif [ "${OSNAME}" = "Linux" ]; then
 
   eval `dircolors -b ${HOME}/.dircolors`
 
@@ -160,6 +160,6 @@ if [ -n "${DISPLAY}" -a -z "${SSH_CONNECTION}" ]; then
       xgamma -quiet -screen ${screen} -gamma 0.74
     done
   elif [ "${HOSTNAME}" = "phobos" ]; then
-    xgamma -quiet -rgamma 0.81 -ggamma 0.6 -bgamma 0.7
+    xgamma -quiet -rgamma 0.97 -ggamma 0.92 -bgamma 0.88
   fi
 fi
