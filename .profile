@@ -82,6 +82,8 @@ if [ -n ${ZSH_VERSION} ]; then
   tex=${HOME}/tex
   tmp=${HOME}/tmp
   usr=${HOME}/usr
+  work=${HOME}/work
+  jdl=/data/JDownloader/downloads
 fi
 
 COLORDIFF=$(which colordiff 2>/dev/null)
