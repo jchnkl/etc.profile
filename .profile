@@ -9,7 +9,6 @@ PATH=\
 ${HOME}/bin:\
 ${HOME}/usr/sbin:\
 ${HOME}/usr/bin:\
-${HOME}/usr/x10/bin:\
 ${PATH}
 export PATH
 
