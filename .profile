@@ -64,6 +64,9 @@ fi
 
 # aliases
 alias '..'='cd ..'
+alias '...'='cd ../..'
+alias '....'='cd ../../..'
+alias '.....'='cd ../../../..'
 alias -- '-'='cd -'
 alias su='sudo su'
 alias gimp='gimp -s'
