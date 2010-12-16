@@ -161,7 +161,7 @@ fi
 if [ -n "${DISPLAY}" -a -z "${SSH_CONNECTION}" ]; then
   if [ "${HOSTNAME}" = "monolith" ]; then
     for screen in 0 1 2; do
-      xgamma -quiet -screen ${screen} -gamma 0.74
+      xgamma -quiet -screen ${screen} -gamma 0.76
     done
   elif [ "${HOSTNAME}" = "phobos" ]; then
     xgamma -quiet -rgamma 0.97 -ggamma 0.92 -bgamma 0.88
