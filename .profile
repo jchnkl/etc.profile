@@ -9,7 +9,6 @@ PATH=\
 ${HOME}/bin:\
 ${HOME}/usr/sbin:\
 ${HOME}/usr/bin:\
-${HOME}/usr/x10/bin:\
 ${PATH}
 export PATH
 
@@ -65,6 +64,9 @@ fi
 
 # aliases
 alias '..'='cd ..'
+alias '...'='cd ../..'
+alias '....'='cd ../../..'
+alias '.....'='cd ../../../..'
 alias -- '-'='cd -'
 alias su='sudo su'
 alias gimp='gimp -s'
@@ -80,6 +82,8 @@ if [ -n ${ZSH_VERSION} ]; then
   tex=${HOME}/tex
   tmp=${HOME}/tmp
   usr=${HOME}/usr
+  work=${HOME}/work
+  jdl=/data/JDownloader/downloads
 fi
 
 COLORDIFF=$(which colordiff 2>/dev/null)
@@ -104,11 +108,11 @@ if [ "${OSNAME}" = "FreeBSD" ]; then
     CLICOLOR_FORCE=1 ls -FlGh $@ | less -EFr;
   }
 
-  lla() {
+  la() {
     CLICOLOR_FORCE=1 ls -aFG $@;
   }
 
-  dira() {
+  da() {
     CLICOLOR_FORCE=1 ls -aFlGh $@ | less -EFr;
   }
 
@@ -124,13 +128,13 @@ elif [ "${OSNAME}" = "Linux" ]; then
   eval `dircolors -b ${HOME}/.dircolors`
 
   alias ll='ls -F --color'
-  alias lla='ls -aF --color'
+  alias la='ls -aF --color'
 
   dir() {
     ls -lF --color "$@" | less -EFR
   }
 
-  dira() {
+  da() {
     ls -alF --color "$@" | less -EFR
   }
 
@@ -157,7 +161,7 @@ fi
 if [ -n "${DISPLAY}" -a -z "${SSH_CONNECTION}" ]; then
   if [ "${HOSTNAME}" = "monolith" ]; then
     for screen in 0 1 2; do
-      xgamma -quiet -screen ${screen} -gamma 0.74
+      xgamma -quiet -screen ${screen} -gamma 0.76
     done
   elif [ "${HOSTNAME}" = "phobos" ]; then
     xgamma -quiet -rgamma 0.97 -ggamma 0.92 -bgamma 0.88
