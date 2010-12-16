@@ -108,11 +108,11 @@ if [ "${OSNAME}" = "FreeBSD" ]; then
     CLICOLOR_FORCE=1 ls -FlGh $@ | less -EFr;
   }
 
-  lla() {
+  la() {
     CLICOLOR_FORCE=1 ls -aFG $@;
   }
 
-  dira() {
+  da() {
     CLICOLOR_FORCE=1 ls -aFlGh $@ | less -EFr;
   }
 
@@ -128,13 +128,13 @@ elif [ "${OSNAME}" = "Linux" ]; then
   eval `dircolors -b ${HOME}/.dircolors`
 
   alias ll='ls -F --color'
-  alias lla='ls -aF --color'
+  alias la='ls -aF --color'
 
   dir() {
     ls -lF --color "$@" | less -EFR
   }
 
-  dira() {
+  da() {
     ls -alF --color "$@" | less -EFR
   }
 
