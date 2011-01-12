@@ -223,6 +223,29 @@ cup() {
   fi
 }
 
+
+# git push
+cpu() {
+  if [ -d ".git" ]; then
+    if [ $# -eq 0 ]; then
+      git push
+    else
+      git push "$*"
+    fi
+  fi
+}
+
+# svn checkout
+cco() {
+  if [ -d ".svn" ]; then
+    if [ $# -eq 0 ]; then
+      svn checkout
+    else
+      svn checkout "$*"
+    fi
+  fi
+}
+
 SVN=$(which svn 2>/dev/null)
 if [ -n "${SVN}" ]; then
   svn() {
