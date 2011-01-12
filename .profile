@@ -134,6 +134,95 @@ elif [ "${OSNAME}" = "Linux" ]; then
 
 fi
 
+# add
+cad() {
+  if [ -d ".git" ]; then
+    if [ $# -eq 0 ]; then
+      git add -p
+    else
+      git add "$*"
+    fi
+  elif [ -d ".svn" ]; then
+    if [ $# -eq 0 ]; then
+      svn add
+    else
+      svn add "$*"
+    fi
+  else
+    return
+  fi
+}
+
+# commit
+ccm() {
+  if [ -d ".git" ]; then
+    if [ $# -eq 0 ]; then
+      git commit -v
+    else
+      git commit -m "$*"
+    fi
+  elif [ -d ".svn" ]; then
+    if [ $# -eq 0 ]; then
+      svn commit
+    else
+      svn commit -m "$*"
+    fi
+  else
+    return
+  fi
+}
+
+# diff
+cdi() {
+  if [ -d ".git" ]; then
+    if [ $# -eq 0 ]; then
+      git diff
+    else
+      git diff "$*"
+    fi
+  elif [ -d ".svn" ]; then
+    if [ $# -eq 0 ]; then
+      svn diff
+    else
+      svn diff "$*"
+    fi
+  fi
+}
+
+# status
+cst() {
+  if [ -d ".git" ]; then
+    if [ $# -eq 0 ]; then
+      git status
+    else
+      git status "$*"
+    fi
+  elif [ -d ".svn" ]; then
+    if [ $# -eq 0 ]; then
+      svn status
+    else
+      svn status "$*"
+    fi
+  fi
+}
+
+# udpate
+cup() {
+  if [ -d ".git" ]; then
+    if [ $# -eq 0 ]; then
+      git pull
+    else
+      git pull "$*"
+    fi
+  elif [ -d ".svn" ]; then
+    if [ $# -eq 0 ]; then
+      svn update
+    else
+      svn update "$*"
+    fi
+  fi
+}
+
 SVN=$(which svn 2>/dev/null)
 if [ -n "${SVN}" ]; then
   svn() {
