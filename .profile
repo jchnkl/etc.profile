@@ -140,13 +140,13 @@ cad() {
     if [ $# -eq 0 ]; then
       git add -p
     else
-      git add "$*"
+      git add "$@"
     fi
   elif [ -d ".svn" ]; then
     if [ $# -eq 0 ]; then
       svn add
     else
-      svn add "$*"
+      svn add "$@"
     fi
   else
     return
@@ -159,13 +159,13 @@ ccm() {
     if [ $# -eq 0 ]; then
       git commit -v
     else
-      git commit -m "$*"
+      git commit -m "$@"
     fi
   elif [ -d ".svn" ]; then
     if [ $# -eq 0 ]; then
       svn commit
     else
-      svn commit -m "$*"
+      svn commit -m "$@"
     fi
   else
     return
@@ -178,13 +178,13 @@ cdi() {
     if [ $# -eq 0 ]; then
       git diff
     else
-      git diff "$*"
+      git diff "$@"
     fi
   elif [ -d ".svn" ]; then
     if [ $# -eq 0 ]; then
       svn diff
     else
-      svn diff "$*"
+      svn diff "$@"
     fi
   fi
 }
@@ -195,13 +195,13 @@ cst() {
     if [ $# -eq 0 ]; then
       git status
     else
-      git status "$*"
+      git status "$@"
     fi
   elif [ -d ".svn" ]; then
     if [ $# -eq 0 ]; then
       svn status
     else
-      svn status "$*"
+      svn status "$@"
     fi
   fi
 }
@@ -212,13 +212,13 @@ cup() {
     if [ $# -eq 0 ]; then
       git pull
     else
-      git pull "$*"
+      git pull "$@"
     fi
   elif [ -d ".svn" ]; then
     if [ $# -eq 0 ]; then
       svn update
     else
-      svn update "$*"
+      svn update "$@"
     fi
   fi
 }
@@ -230,7 +230,7 @@ cpu() {
     if [ $# -eq 0 ]; then
       git push
     else
-      git push "$*"
+      git push "$@"
     fi
   fi
 }
@@ -241,7 +241,7 @@ cco() {
     if [ $# -eq 0 ]; then
       svn checkout
     else
-      svn checkout "$*"
+      svn checkout "$@"
     fi
   fi
 }
