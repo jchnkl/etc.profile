@@ -106,13 +106,6 @@ if [ "${OSNAME}" = "FreeBSD" ]; then
     CLICOLOR_FORCE=1 ls -aFlGh $@ | less -EFr;
   }
 
-  # source bash completion scripts
-  if [ -d /usr/local/etc/bash_completion.d/ -a -n "${BASH}" ]; then
-    for i in /usr/local/etc/bash_completion.d/*; do
-      . "$i"
-    done
-  fi
-
 elif [ "${OSNAME}" = "Linux" ]; then
 
   eval `dircolors -b ${HOME}/.dircolors`
@@ -127,13 +120,6 @@ elif [ "${OSNAME}" = "Linux" ]; then
   da() {
     ls -alF --color "$@" | less -EFR
   }
-
-  # source bash completion scripts
-  if [ -d /etc/bash_completion.d/ -a -n "${BASH}" ]; then
-    for i in /etc/bash_completion.d/*; do
-      . "$i"
-    done
-  fi
 
 fi
 
