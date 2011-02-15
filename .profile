@@ -5,6 +5,9 @@
 # see also sh(1), environ(7).
 #
 
+# do this only for interactive shells
+[ -z "$PS1" ] && return
+
 PATH=\
 ${HOME}/bin:\
 ${HOME}/usr/sbin:\
