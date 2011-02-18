@@ -126,7 +126,7 @@ fi
 GITCMD=/usr/bin/git
 SVNCMD=/usr/bin/svn
 
-runscm() {
+checkscm() {
   DIR=$(pwd)
   SCMCMD=
   until [ ${DIR} = "/" ]; do
@@ -139,106 +139,79 @@ runscm() {
     fi
     DIR=$(dirname ${DIR})
   done
+}
 
-  if [ -n ${SCMCMD} ]; then
-    while [ -n "$1" ]; do
-      if [ "$1" = "${SCMCMD}" ]; then
-        eval $1
-        break
-      else
-        shift
-      fi
-    done
+runscm() {
+  NOARGS="$1"
+  WITHARGS="$2"
+  shift; shift
+  if [ $# -eq 0 ]; then
+    eval "${SCMCMD} ${NOARGS}"
+  else
+    eval "${SCMCMD} ${WITHARGS} '$@'"
   fi
 }
 
 # add
 cad() {
-  if [ $# -eq 0 ]; then
-    git() { ${GITCMD} add -p }
-    svn() { ${SVNCMD} add }
-  else
-    git() { ${GITCMD} add "$@" }
-    svn() { ${SVNCMD} add "$@" }
-  fi
-
-  runscm git svn
+  checkscm
+  case ${SCMCMD} in
+    git) runscm "add -p" "add" "$@" ;;
+    svn) runscm "add" "add" "$@" ;;
+  esac
 }
 
 # commit
 ccm() {
-  if [ $# -eq 0 ]; then
-    git() { ${GITCMD} commit -v }
-    svn() { ${SVNCMD} commit }
-  else
-    git() { ${GITCMD} commit -m "$@" }
-    svn() { ${SVNCMD} commit -m "$@" }
-  fi
-
-  runscm git svn
+  checkscm
+  case ${SCMCMD} in
+    git) runscm "commit -v" "commit -m" "$@" ;;
+    svn) runscm "commit" "commit -m" "$@" ;;
+  esac
 }
 
 # diff
 cdi() {
-  if [ $# -eq 0 ]; then
-    git() { ${GITCMD} diff }
-    svn() { ${SVNCMD} diff }
-  else
-    git() { ${GITCMD} diff "$@" }
-    svn() { ${SVNCMD} diff "$@" }
-  fi
-
-  runscm git svn
+  checkscm
+  case ${SCMCMD} in
+    git) runscm "diff" "diff" "$@" ;;
+    svn) runscm "diff" "diff" "$@" ;;
+  esac
 }
 
 # status
 cst() {
-  if [ $# -eq 0 ]; then
-    git() { ${GITCMD} status }
-    svn() { ${SVNCMD} status }
-  else
-    git() { ${GITCMD} status "$@" }
-    svn() { ${SVNCMD} status "$@" }
-  fi
-
-  runscm git scm
+  checkscm
+  case ${SCMCMD} in
+    git) runscm "status" "status" "$@" ;;
+    svn) runscm "status" "status" "$@" ;;
+  esac
 }
 
 # update
 cup() {
-  if [ $# -eq 0 ]; then
-    git() { ${GITCMD} pull }
-    svn() { ${SVNCMD} update }
-  else
-    git() { ${GITCMD} pull "$@" }
-    svn() { ${SVNCMD} update "$@" }
-  fi
-
-  runscm git scm
+  checkscm
+  case ${SCMCMD} in
+    git) runscm "pull" "pull" "$@" ;;
+    svn) runscm "update" "update" "$@" ;;
+  esac
 }
 
 # git push
 cpu() {
-  if [ $# -eq 0 ]; then
-    git() { ${GITCMD} push }
-  else
-    git() { ${GITCMD} push "$@" }
-  fi
-
-  runscm git
+  checkscm
+  case ${SCMCMD} in
+    git) runscm "push" "push" "$@" ;;
+  esac
 }
 
-# svn checkout
+# checkout
 cco() {
-  if [ $# -eq 0 ]; then
-    git() { ${GITCMD} checkout }
-    svn() { ${SVNCMD} checkout }
-  else
-    git() { ${GITCMD} checkout "$@" }
-    svn() { ${SVNCMD} checkout "$@" }
-  fi
-
-  runscm git svn
+  checkscm
+  case ${SCMCMD} in
+    git) runscm "checkout" "checkout" "$@" ;;
+    svn) runscm "checkout" "checkout" "$@" ;;
+  esac
 }
 
 SVN=$(which svn 2>/dev/null)
