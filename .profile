@@ -123,116 +123,122 @@ elif [ "${OSNAME}" = "Linux" ]; then
 
 fi
 
+GITCMD=/usr/bin/git
+SVNCMD=/usr/bin/svn
+
+runscm() {
+  DIR=$(pwd)
+  SCMCMD=
+  until [ ${DIR} = "/" ]; do
+    if [ -d ${DIR}/.git ]; then
+      SCMCMD=git
+      break
+    elif [ -d ${DIR}/.svn ]; then
+      SCMCMD=svn
+      break
+    fi
+    DIR=$(dirname ${DIR})
+  done
+
+  if [ -n ${SCMCMD} ]; then
+    while [ -n "$1" ]; do
+      if [ "$1" = "${SCMCMD}" ]; then
+        eval $1
+        break
+      else
+        shift
+      fi
+    done
+  fi
+}
+
 # add
 cad() {
-  if [ -d ".git" ]; then
-    if [ $# -eq 0 ]; then
-      git add -p
-    else
-      git add "$@"
-    fi
-  elif [ -d ".svn" ]; then
-    if [ $# -eq 0 ]; then
-      svn add
-    else
-      svn add "$@"
-    fi
+  if [ $# -eq 0 ]; then
+    git() { ${GITCMD} add -p }
+    svn() { ${SVNCMD} add }
   else
-    return
+    git() { ${GITCMD} add "$@" }
+    svn() { ${SVNCMD} add "$@" }
   fi
+
+  runscm git svn
 }
 
 # commit
 ccm() {
-  if [ -d ".git" ]; then
-    if [ $# -eq 0 ]; then
-      git commit -v
-    else
-      git commit -m "$@"
-    fi
-  elif [ -d ".svn" ]; then
-    if [ $# -eq 0 ]; then
-      svn commit
-    else
-      svn commit -m "$@"
-    fi
+  if [ $# -eq 0 ]; then
+    git() { ${GITCMD} commit -v }
+    svn() { ${SVNCMD} commit }
   else
-    return
+    git() { ${GITCMD} commit -m "$@" }
+    svn() { ${SVNCMD} commit -m "$@" }
   fi
+
+  runscm git svn
 }
 
 # diff
 cdi() {
-  if [ -d ".git" ]; then
-    if [ $# -eq 0 ]; then
-      git diff
-    else
-      git diff "$@"
-    fi
-  elif [ -d ".svn" ]; then
-    if [ $# -eq 0 ]; then
-      svn diff
-    else
-      svn diff "$@"
-    fi
+  if [ $# -eq 0 ]; then
+    git() { ${GITCMD} diff }
+    svn() { ${SVNCMD} diff }
+  else
+    git() { ${GITCMD} diff "$@" }
+    svn() { ${SVNCMD} diff "$@" }
   fi
+
+  runscm git svn
 }
 
 # status
 cst() {
-  if [ -d ".git" ]; then
-    if [ $# -eq 0 ]; then
-      git status
-    else
-      git status "$@"
-    fi
-  elif [ -d ".svn" ]; then
-    if [ $# -eq 0 ]; then
-      svn status
-    else
-      svn status "$@"
-    fi
+  if [ $# -eq 0 ]; then
+    git() { ${GITCMD} status }
+    svn() { ${SVNCMD} status }
+  else
+    git() { ${GITCMD} status "$@" }
+    svn() { ${SVNCMD} status "$@" }
   fi
+
+  runscm git scm
 }
 
-# udpate
+# update
 cup() {
-  if [ -d ".git" ]; then
-    if [ $# -eq 0 ]; then
-      git pull
-    else
-      git pull "$@"
-    fi
-  elif [ -d ".svn" ]; then
-    if [ $# -eq 0 ]; then
-      svn update
-    else
-      svn update "$@"
-    fi
+  if [ $# -eq 0 ]; then
+    git() { ${GITCMD} pull }
+    svn() { ${SVNCMD} update }
+  else
+    git() { ${GITCMD} pull "$@" }
+    svn() { ${SVNCMD} update "$@" }
   fi
-}
 
+  runscm git scm
+}
 
 # git push
 cpu() {
-  if [ -d ".git" ]; then
-    if [ $# -eq 0 ]; then
-      git push
-    else
-      git push "$@"
-    fi
+  if [ $# -eq 0 ]; then
+    git() { ${GITCMD} push }
+  else
+    git() { ${GITCMD} push "$@" }
   fi
+
+  runscm git
 }
 
 # svn checkout
 cco() {
-  if [ -d ".svn" ]; then
-    if [ $# -eq 0 ]; then
-      svn checkout
-    else
-      svn checkout "$@"
-    fi
+  if [ $# -eq 0 ]; then
+    git() { ${GITCMD} checkout }
+    svn() { ${SVNCMD} checkout }
+  else
+    git() { ${GITCMD} checkout "$@" }
+    svn() { ${SVNCMD} checkout "$@" }
   fi
+
+  runscm git svn
 }
 
 SVN=$(which svn 2>/dev/null)
