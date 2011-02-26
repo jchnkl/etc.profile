@@ -165,8 +165,8 @@ cad() {
 ccm() {
   checkscm
   case ${SCMCMD} in
-    git) runscm "commit -v" "commit -m" "$@" ;;
-    svn) runscm "commit" "commit -m" "$@" ;;
+    git) runscm "commit -v" "commit -m" "'$@'" ;;
+    svn) runscm "commit" "commit -m" "'$@'" ;;
   esac
 }
 
