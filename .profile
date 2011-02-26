@@ -148,7 +148,7 @@ runscm() {
   if [ $# -eq 0 ]; then
     eval "${SCMCMD} ${NOARGS}"
   else
-    eval "${SCMCMD} ${WITHARGS} '$@'"
+    eval "${SCMCMD} ${WITHARGS} "$@""
   fi
 }
 
