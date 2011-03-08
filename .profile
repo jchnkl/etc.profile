@@ -148,7 +148,7 @@ runscm() {
   if [ $# -eq 0 ]; then
     eval "${SCMCMD} ${NOARGS}"
   else
-    eval "${SCMCMD} ${WITHARGS} '$@'"
+    eval "${SCMCMD} ${WITHARGS} "$@""
   fi
 }
 
@@ -165,8 +165,8 @@ cad() {
 ccm() {
   checkscm
   case ${SCMCMD} in
-    git) runscm "commit -v" "commit -m" "$@" ;;
-    svn) runscm "commit" "commit -m" "$@" ;;
+    git) runscm "commit -v" "commit -m" "'$@'" ;;
+    svn) runscm "commit" "commit -m" "'$@'" ;;
   esac
 }
 
