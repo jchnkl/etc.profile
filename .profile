@@ -68,6 +68,10 @@ export EDITOR
 PAGER='less'
 export PAGER
 
+# fix mouse pointer problem in qemu/dosbox/etc.
+SDL_VIDEO_X11_DGAMOUSE=0
+export SDL_VIDEO_X11_DGAMOUSE
+
 ENV=${HOME}/.shrc
 export ENV
 
