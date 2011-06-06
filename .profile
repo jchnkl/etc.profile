@@ -7,6 +7,9 @@
 
 # do this only when $DISPLAY is set but not on an ssh connection
 if [ -n "${DISPLAY}" -a -z "${SSH_CONNECTION}" ]; then
+  # disable bell
+  xset -b
+
   if [ "${HOSTNAME}" = "monolith" ]; then
     for screen in 0 1 2; do
       : xgamma -quiet -screen ${screen} -gamma 0.76
