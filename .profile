@@ -78,7 +78,7 @@ export SDL_VIDEO_X11_DGAMOUSE
 ENV=${HOME}/.shrc
 export ENV
 
-if [ -f ${HOME}/.termcap ]; then
+if [ "${OSNAME}" = "FreeBSD" -a -f ${HOME}/.termcap ]; then
   TERMCAP=$(< ${HOME}/.termcap)
   export TERMCAP
 fi
