@@ -41,7 +41,7 @@ HOSTNAME=$(hostname -s)
 BLOCKSIZE=K
 export BLOCKSIZE
 
-LANG=en_US.UTF-8
+LANG=de_DE.UTF-8
 export LANG
 
 LC_COLLATE=de_DE.UTF-8
