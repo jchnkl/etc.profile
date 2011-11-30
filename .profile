@@ -11,9 +11,7 @@ if [ -n "${DISPLAY}" -a -z "${SSH_CONNECTION}" ]; then
   xset -b
 
   if [ "${HOSTNAME}" = "monolith" ]; then
-    for screen in 0 1 2; do
-      xgamma -quiet -screen ${screen} -gamma 0.76
-    done
+    xcalib /usr/share/apps/libkdcraw/profiles/widegamut.icm
   elif [ "${HOSTNAME}" = "phobos" ]; then
     xgamma -quiet -rgamma 0.97 -ggamma 0.92 -bgamma 0.88
   fi
