@@ -124,7 +124,7 @@ if [ "${OSNAME}" = "FreeBSD" ]; then
 
 elif [ "${OSNAME}" = "Linux" ]; then
 
-  eval `dircolors -b ${HOME}/.dircolors`
+  eval $(dircolors -b ${HOME}/.dircolors.256dark)
 
   alias ll='ls -F --color'
   alias la='ls -aF --color'
