@@ -91,6 +91,8 @@ alias gimp='gimp -s'
 alias tms='tmux -L stuff'
 alias tml='tmux -L long'
 alias smux='sudo tmux'
+alias bc='bc -l'
+alias grep='grep --color' # hooray for incompatibility
 
 COLORDIFF=$(which colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
