@@ -60,7 +60,7 @@ export LC_NUMERIC
 LC_TIME=de_DE.UTF-8
 export LC_TIME
 
-LESS='-i -X -R'
+LESS='-i -X -R -j .5'
 export LESS
 
 EDITOR='vim'
