@@ -94,6 +94,7 @@ alias tml='tmux -L long'
 alias smux='sudo tmux'
 alias bc='bc -l'
 alias grep='grep --color' # hooray for incompatibility
+alias wi='wicd-curses'
 
 COLORDIFF=$(which colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
