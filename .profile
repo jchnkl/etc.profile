@@ -25,6 +25,7 @@ ${HOME}/bin:\
 ${HOME}/usr/sbin:\
 ${HOME}/usr/bin:\
 ${HOME}/.cabal/bin:\
+${HOME}/.local/bin:\
 ${PATH}
 export PATH
 
