@@ -97,7 +97,26 @@ alias smux='sudo tmux'
 alias bc='bc -l'
 alias grep='grep --color' # hooray for incompatibility
 alias wi='wicd-curses'
+
 alias g='git'
+alias gs='git status'
+alias gcl='git clone'
+alias gpl='git pull'
+alias gps='git push'
+alias gap='git add -p'
+alias gc='git commit'
+alias gcv='git commit -v'
+alias gca='git commit --amend -v'
+alias gco='git checkout'
+alias gcp='git checkout -p'
+alias gdi='git diff'
+alias gl='git log'
+alias glp='git log -p'
+alias gr='git reset'
+alias grp='git reset -p'
+alias gsm='git submodule'
+alias gsmup='git submodule update --recursive --init'
+
 
 COLORDIFF=$(which colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
