@@ -266,3 +266,14 @@ if [ -n "${SVN}" ]; then
     fi
   }
 fi
+
+MAN=$(which man)
+if [ -x ${MAN} ]; then
+    man() {
+        if [ ${COLUMNS} -lt 80 ]; then
+            ${MAN} $@
+        else
+            MANWIDTH=80 ${MAN} $@
+        fi
+    }
+fi
