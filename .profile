@@ -117,6 +117,11 @@ alias grp='git reset -p'
 alias gsm='git submodule'
 alias gsmup='git submodule update --recursive --init'
 
+# fasd
+alias v='f -e vim'
+alias o='a -e xdg-open'
+alias c='fasd_cd -d'
+
 
 COLORDIFF=$(which colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
