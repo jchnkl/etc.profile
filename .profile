@@ -151,7 +151,7 @@ if [ "${OSNAME}" = "FreeBSD" ]; then
   }
 
   la() {
-    CLICOLOR_FORCE=1 ls -aFG $@;
+    CLICOLOR_FORCE=1 ls -ahFG $@;
   }
 
   da() {
@@ -166,11 +166,11 @@ elif [ "${OSNAME}" = "Linux" ]; then
   alias la='ls -aF --color'
 
   dir() {
-    ls -lF --color "$@" | less -EFR
+    ls -hlF --color "$@" | less -EFR
   }
 
   da() {
-    ls -alF --color "$@" | less -EFR
+    ls -ahlF --color "$@" | less -EFR
   }
 
 fi
