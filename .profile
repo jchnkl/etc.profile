@@ -1,19 +1,6 @@
 # .profile - Bourne Shell startup script for login shells
 #
 # see also sh(1), environ(7).
-#
-
-# do this only when $DISPLAY is set but not on an ssh connection
-if [ -n "${DISPLAY}" -a -z "${SSH_CONNECTION}" ]; then
-  # disable bell
-  xset -b
-
-  if [ "${HOSTNAME}" = "monolith" ]; then
-    : xcalib /usr/share/apps/libkdcraw/profiles/widegamut.icm
-  elif [ "${HOSTNAME}" = "phobos" ]; then
-    : xgamma -quiet -rgamma 0.97 -ggamma 0.92 -bgamma 0.88
-  fi
-fi
 
 # do this only for interactive shells
 [ -z "$PS1" ] && return
