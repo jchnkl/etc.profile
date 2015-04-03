@@ -33,6 +33,12 @@ export PAGER='less'
 # fix mouse pointer problem in qemu/dosbox/etc.
 export SDL_VIDEO_X11_DGAMOUSE=0
 
+# Use standout and italics to highlight search results
+# standout enter
+export LESS_TERMCAP_so=$(tput smso)$(tput sitm)
+# standout exit
+export LESS_TERMCAP_se=$(tput rmso)$(tput ritm)
+
 # aliases
 alias '...'='cd ../..'
 alias '....'='cd ../../..'
