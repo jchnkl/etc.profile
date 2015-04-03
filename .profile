@@ -56,9 +56,6 @@ export PAGER
 SDL_VIDEO_X11_DGAMOUSE=0
 export SDL_VIDEO_X11_DGAMOUSE
 
-ENV=${HOME}/.shrc
-export ENV
-
 # aliases
 alias '...'='cd ../..'
 alias '....'='cd ../../..'
