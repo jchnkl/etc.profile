@@ -59,11 +59,6 @@ export SDL_VIDEO_X11_DGAMOUSE
 ENV=${HOME}/.shrc
 export ENV
 
-if [ "${OSNAME}" = "FreeBSD" -a -f ${HOME}/.termcap ]; then
-  TERMCAP=$(< ${HOME}/.termcap)
-  export TERMCAP
-fi
-
 # aliases
 alias '...'='cd ../..'
 alias '....'='cd ../../..'
@@ -115,46 +110,18 @@ if [ -x ${COLORDIFF} ]; then
 fi
 
 # functions
-if [ "${OSNAME}" = "FreeBSD" ]; then
+eval $(dircolors -b ${HOME}/.dircolors)
 
-  PATH=/usr/local/mpi/openmpi/bin:${PATH}
-  export PATH
+alias ll='ls -F --color'
+alias la='ls -aF --color'
 
-  LSCOLORS='xexfxcxdxbegedabagacad'
-  export LSCOLORS
+dir() {
+  ls -hlF --color "$@" | less -EFR
+}
 
-  ll() {
-    CLICOLOR_FORCE=1 ls -FG $@;
-  }
-
-  dir() {
-    CLICOLOR_FORCE=1 ls -FlGh $@ | less -EFr;
-  }
-
-  la() {
-    CLICOLOR_FORCE=1 ls -ahFG $@;
-  }
-
-  da() {
-    CLICOLOR_FORCE=1 ls -aFlGh $@ | less -EFr;
-  }
-
-elif [ "${OSNAME}" = "Linux" ]; then
-
-  eval $(dircolors -b ${HOME}/.dircolors)
-
-  alias ll='ls -F --color'
-  alias la='ls -aF --color'
-
-  dir() {
-    ls -hlF --color "$@" | less -EFR
-  }
-
-  da() {
-    ls -ahlF --color "$@" | less -EFR
-  }
-
-fi
+da() {
+  ls -ahlF --color "$@" | less -EFR
+}
 
 GITCMD=/usr/bin/git
 SVNCMD=/usr/bin/svn
