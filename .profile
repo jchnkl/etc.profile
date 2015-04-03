@@ -6,17 +6,13 @@
 [ -z "$PS1" ] && return
 
 PATH=\
-${HOME}/bin:\
-${HOME}/usr/sbin:\
-${HOME}/usr/bin:\
 ${HOME}/.cabal/bin:\
 ${HOME}/.local/bin:\
 ${PATH}
 export PATH
 
 LD_LIBRARY_PATH=\
-${HOME}/lib:\
-${HOME}/usr/lib:\
+${HOME}/.local/lib:\
 ${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH
 
