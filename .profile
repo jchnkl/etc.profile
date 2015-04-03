@@ -19,42 +19,19 @@ export LD_LIBRARY_PATH
 OSNAME=$(uname -s)
 HOSTNAME=$(hostname -s)
 
-BLOCKSIZE=K
-export BLOCKSIZE
-
-LANG=de_DE.UTF-8
-export LANG
-
-LC_COLLATE=de_DE.UTF-8
-export LC_COLLATE
-
-LC_CTYPE=de_DE.UTF-8
-export LC_CTYPE
-
-LC_MESSAGES=en_US.UTF-8
-export LC_MESSAGES
-
-LC_MONETARY=de_DE.UTF-8
-export LC_MONETARY
-
-LC_NUMERIC=de_DE.UTF-8
-export LC_NUMERIC
-
-LC_TIME=de_DE.UTF-8
-export LC_TIME
-
-LESS='-i -X -R -j .5'
-export LESS
-
-EDITOR='vim'
-export EDITOR
-
-PAGER='less'
-export PAGER
-
+export BLOCKSIZE=K
+export LANG=de_DE.UTF-8
+export LC_COLLATE=de_DE.UTF-8
+export LC_CTYPE=de_DE.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+export LC_MONETARY=de_DE.UTF-8
+export LC_NUMERIC=de_DE.UTF-8
+export LC_TIME=de_DE.UTF-8
+export LESS='-i -X -R -j .5'
+export EDITOR='vim'
+export PAGER='less'
 # fix mouse pointer problem in qemu/dosbox/etc.
-SDL_VIDEO_X11_DGAMOUSE=0
-export SDL_VIDEO_X11_DGAMOUSE
+export SDL_VIDEO_X11_DGAMOUSE=0
 
 # aliases
 alias '...'='cd ../..'
