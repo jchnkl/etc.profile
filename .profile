@@ -27,7 +27,7 @@ export LC_MESSAGES=en_US.UTF-8
 export LC_MONETARY=de_DE.UTF-8
 export LC_NUMERIC=de_DE.UTF-8
 export LC_TIME=de_DE.UTF-8
-export LESS='-i -X -R -j .5'
+export LESS='-i -X -R -J -j .5'
 export EDITOR='vim'
 export PAGER='less'
 # fix mouse pointer problem in qemu/dosbox/etc.
