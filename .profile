@@ -27,17 +27,20 @@ export LC_MESSAGES=en_US.UTF-8
 export LC_MONETARY=de_DE.UTF-8
 export LC_NUMERIC=de_DE.UTF-8
 export LC_TIME=de_DE.UTF-8
-export LESS='-i -X -R -J -j .5'
 export EDITOR='vim'
 export PAGER='less'
+
 # fix mouse pointer problem in qemu/dosbox/etc.
 export SDL_VIDEO_X11_DGAMOUSE=0
 
+## LESS options
 # Use standout and italics to highlight search results
 # standout enter
 export LESS_TERMCAP_so=$(tput smso)$(tput sitm)
 # standout exit
 export LESS_TERMCAP_se=$(tput rmso)$(tput ritm)
+export LESSOPEN="| highlight -s solarized-light -O xterm256 %s 2>/dev/null"
+export LESS='-i -X -R -J -j .5'
 
 # aliases
 alias '...'='cd ../..'
