@@ -40,7 +40,7 @@ export LESS_TERMCAP_so=$(tput smso)$(tput sitm)
 # standout exit
 export LESS_TERMCAP_se=$(tput rmso)$(tput ritm)
 export LESSOPEN="| highlight -s solarized-light -O xterm256 %s 2>/dev/null"
-export LESS='-i -X -R -J -j .5'
+export LESS='-i -X -R -J -j .25'
 
 # aliases
 alias '...'='cd ../..'
