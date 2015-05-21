@@ -12,9 +12,6 @@ export PATH
 LD_LIBRARY_PATH="${HOME}/.local/lib${LD_LIBRARY_PATH+:}${LD_LIBRARY_PATH}"
 export LD_LIBRARY_PATH
 
-OSNAME=$(uname -s)
-HOSTNAME=$(hostname -s)
-
 export BLOCKSIZE=K
 export LANG=de_DE.UTF-8
 export LC_COLLATE=de_DE.UTF-8
