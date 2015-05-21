@@ -74,7 +74,6 @@ alias v='f -e vim'
 alias o='a -e xdg-open'
 alias c='fasd_cd -d'
 
-
 COLORDIFF=$(which colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
   alias diff='colordiff'
@@ -86,11 +85,11 @@ eval $(dircolors -b ${HOME}/.dircolors)
 alias ll='ls -F --color'
 alias la='ls -aF --color'
 
-dir() {
+function dir() {
   ls -hlF --color "$@" | less -EFR
 }
 
-da() {
+function da() {
   ls -ahlF --color "$@" | less -EFR
 }
 
