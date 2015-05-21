@@ -30,10 +30,21 @@ fi
 
 PATH="${HOME}/.cabal/bin${PATH+:}${PATH}"
 PATH="${HOME}/.local/bin${PATH+:}${PATH}"
+PATH="${HOME}/perl5/bin${PATH+:}${PATH}"
+PATH="${HOME}/.gem/ruby/2.2.0/bin${PATH+:}${PATH}"
 export PATH
 
 LD_LIBRARY_PATH="${HOME}/.local/lib${LD_LIBRARY_PATH+:}${LD_LIBRARY_PATH}"
 export LD_LIBRARY_PATH
+
+PERL5LIB="/suse/jkeil/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"
+export PERL5LIB
+PERL_LOCAL_LIB_ROOT="/suse/jkeil/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"
+export PERL_LOCAL_LIB_ROOT
+PERL_MB_OPT="--install_base \"/suse/jkeil/perl5\""
+export PERL_MB_OPT
+PERL_MM_OPT="INSTALL_BASE=/suse/jkeil/perl5"
+export PERL_MM_OPT
 
 export BLOCKSIZE=K
 export LANG=de_DE.UTF-8
