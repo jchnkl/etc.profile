@@ -99,6 +99,15 @@ da() {
   ls -ahlF --color "$@" | less -EFR
 }
 
+IRSSI=$(which irssi 2>/dev/null)
+function irssi() {
+  TERM=$TERM
+  if [ -n "$TMUX" ]; then
+    TERM=screen-256color
+  fi
+  ${IRSSI} $@
+}
+
 SVN=$(which svn 2>/dev/null)
 if [ -n "${SVN}" ]; then
   svn() {
