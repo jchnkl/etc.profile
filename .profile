@@ -14,6 +14,20 @@ if [ "${HOSTNAME}" = "jkeil" ]; then
   fi
 fi
 
+test -z "$PROFILEREAD" && . /etc/profile || true
+
+if [ -d /suse/bin ]; then
+  export PATH=$PATH:/suse/bin
+fi
+
+if [ -d /mounts/users-space/archteam/bin ]; then
+  export PATH=$PATH:/mounts/users-space/archteam/bin/
+fi
+
+if [ -r /work/src/bin/.profile ]; then
+  . /work/src/bin/.profile
+fi
+
 PATH="${HOME}/.cabal/bin${PATH+:}${PATH}"
 PATH="${HOME}/.local/bin${PATH+:}${PATH}"
 export PATH
