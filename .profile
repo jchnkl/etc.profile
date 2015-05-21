@@ -12,6 +12,8 @@ if [ "${HOSTNAME}" = "jkeil" ]; then
       exec /usr/bin/zsh -l
     fi
   fi
+
+  export XDG_CACHE_HOME=/home/jkeil/.cache
 fi
 
 test -z "$PROFILEREAD" && . /etc/profile || true
