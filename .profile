@@ -5,6 +5,15 @@
 # do this only for interactive shells
 [ -z "$PS1" ] && return
 
+if [ "${HOSTNAME}" = "jkeil" ]; then
+  if [ -z "$ZSH_VERSION" ] ; then
+    if [ -x /usr/bin/zsh ]; then
+      export SHELL=/usr/bin/zsh
+      exec /usr/bin/zsh -l
+    fi
+  fi
+fi
+
 PATH="${HOME}/.cabal/bin${PATH+:}${PATH}"
 PATH="${HOME}/.local/bin${PATH+:}${PATH}"
 export PATH
