@@ -14,9 +14,6 @@ export LD_LIBRARY_PATH
 
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
-OSNAME=$(uname -s)
-HOSTNAME=$(hostname -s)
-
 export BLOCKSIZE=K
 export LANG=de_DE.UTF-8
 export LC_COLLATE=de_DE.UTF-8
