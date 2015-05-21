@@ -5,15 +5,11 @@
 # do this only for interactive shells
 [ -z "$PS1" ] && return
 
-PATH=\
-${HOME}/.cabal/bin:\
-${HOME}/.local/bin:\
-${PATH}
+PATH="${HOME}/.cabal/bin${PATH+:}${PATH}"
+PATH="${HOME}/.local/bin${PATH+:}${PATH}"
 export PATH
 
-LD_LIBRARY_PATH=\
-${HOME}/.local/lib:\
-${LD_LIBRARY_PATH}
+LD_LIBRARY_PATH="${HOME}/.local/lib${LD_LIBRARY_PATH+:}${LD_LIBRARY_PATH}"
 export LD_LIBRARY_PATH
 
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
