@@ -108,6 +108,10 @@ alias v='f -e vim'
 alias o='a -e xdg-open'
 alias c='fasd_cd -d'
 
+# osc
+alias ibs='osc -A ibs'
+alias obs='osc -A obs'
+
 COLORDIFF=$(which colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
   alias diff='colordiff'
