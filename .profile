@@ -112,7 +112,7 @@ alias c='fasd_cd -d'
 alias ibs='osc -A ibs'
 alias obs='osc -A obs'
 
-COLORDIFF=$(which colordiff 2>/dev/null)
+COLORDIFF=$(/usr/bin/which --skip-functions colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
   alias diff='colordiff'
 fi
@@ -131,7 +131,7 @@ function da() {
   ls -ahlF --color "$@" | less -EFR
 }
 
-IRSSI=$(which irssi 2>/dev/null)
+IRSSI=$(/usr/bin/which --skip-functions irssi 2>/dev/null)
 function irssi() {
   TERM=$TERM
   if [ -n "$TMUX" ]; then
@@ -140,7 +140,7 @@ function irssi() {
   ${IRSSI} $@
 }
 
-SVN=$(which svn 2>/dev/null)
+SVN=$(/usr/bin/which --skip-functions svn 2>/dev/null)
 if [ -n "${SVN}" ]; then
   svn() {
     if [ "$1" = "diff" ]; then
@@ -151,7 +151,7 @@ if [ -n "${SVN}" ]; then
   }
 fi
 
-MAN=$(which man)
+MAN=$(/usr/bin/which --skip-functions man 2>/dev/null)
 if [ -x ${MAN} ]; then
     man() {
         if [ ${COLUMNS} -lt 80 ]; then
