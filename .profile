@@ -112,6 +112,8 @@ alias c='fasd_cd -d'
 alias ibs='osc -A ibs'
 alias obs='osc -A obs'
 
+alias zyp='sudo zypper'
+
 COLORDIFF=$(/usr/bin/which --skip-functions colordiff 2>/dev/null)
 if [ -x ${COLORDIFF} ]; then
   alias diff='colordiff'
