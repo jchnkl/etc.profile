@@ -5,7 +5,7 @@
 # do this only for interactive shells
 [ -z "$PS1" ] && return
 
-if [ "${HOSTNAME}" = "jkeil" ]; then
+if [ "${HOSTNAME}" = "ymir" ]; then
   if [ -z "$ZSH_VERSION" ] ; then
     if [ -x /usr/bin/zsh ]; then
       export SHELL=/usr/bin/zsh
