@@ -6,9 +6,6 @@ PATH="${HOME}/.cabal/bin${PATH+:}${PATH}"
 PATH="${HOME}/.local/bin${PATH+:}${PATH}"
 export PATH
 
-LD_LIBRARY_PATH="${HOME}/.local/lib${LD_LIBRARY_PATH+:}${LD_LIBRARY_PATH}"
-export LD_LIBRARY_PATH
-
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
 # fix mouse pointer problem in qemu/dosbox/etc.
@@ -20,6 +17,9 @@ export SDL_VIDEO_X11_DGAMOUSE=0
 [ -z "$PS1" ] && return
 
 
+
+LD_LIBRARY_PATH="${HOME}/.local/lib${LD_LIBRARY_PATH+:}${LD_LIBRARY_PATH}"
+export LD_LIBRARY_PATH
 
 export BLOCKSIZE=K
 export LANG=de_DE.UTF-8
