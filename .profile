@@ -51,6 +51,7 @@ alias sudo='sudo -E'
 alias bc='bc -l'
 alias grep='grep --color' # hooray for incompatibility
 alias wi='wicd-curses'
+alias vim=nvim
 
 alias g='git'
 alias gs='git status'
