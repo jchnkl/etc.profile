@@ -128,3 +128,8 @@ if [ -x ${MAN} ]; then
         fi
     }
 fi
+
+# added by Nix installer
+if [ -e /home/jrk/.nix-profile/etc/profile.d/nix.sh ]; then
+  . /home/jrk/.nix-profile/etc/profile.d/nix.sh
+fi
