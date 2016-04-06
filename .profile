@@ -5,6 +5,10 @@
 # do this only for interactive shells
 [ -z "$PS1" ] && return
 
+if [ "x${JUNEST_ENV}" = "x1" ]; then
+  export PULSE_SERVER=localhost
+fi
+
 PATH="${HOME}/.cabal/bin${PATH+:}${PATH}"
 PATH="${HOME}/.local/bin${PATH+:}${PATH}"
 export PATH
