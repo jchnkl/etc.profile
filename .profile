@@ -7,6 +7,9 @@
 
 if [ "x${JUNEST_ENV}" = "x1" ]; then
   export PULSE_SERVER=localhost
+else
+  alias junest='junest -p "-b ${HOME}/.config/junest/passwd:/etc/passwd \
+                           -b ${HOME}/.config/junest/group:/etc/group"'
 fi
 
 PATH="${HOME}/.cabal/bin${PATH+:}${PATH}"
